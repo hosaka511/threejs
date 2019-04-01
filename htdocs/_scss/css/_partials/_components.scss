@@ -1,0 +1,29 @@
+/* ------------------------
+  Components
+------------------------ */
+.hoge {
+  width: 100%;
+  @include breakpoint-up(sm) {
+    background: turquoise;
+    &::after {
+      content: "：SM";
+    }
+  }
+  @include breakpoint-up(md) {
+    background: violet;
+    &::after {
+      content: "：MD";
+    }
+  }
+  @include breakpoint-up(lg) {
+    background: wheat;
+    &::after {
+      content: "：LG";
+    }
+  }
+}
+
+/* 小コメント ------- */
+.hoge_small {
+  width: 100%;
+}

@@ -1,0 +1,26 @@
+/*
+* top.css
+*
+*/
+/* --------------------------------
+   top
+-------------------------------- */
+.xxxx {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  bottom: 10px;
+  left: 30px; 
+  background: tomato;
+  font-size: calc(15px + 2 * ((100vw - 320px) / 55));
+}
+@media screen and (min-width: 375px) {
+  .xxxx {
+    font-size: 17px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .xxxx {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,7 @@
+<% function picture(src, alt) { %>
+<picture>
+  <!--[if IE 9]><video style="display: none;"><![endif]-->
+  <source srcset="<%- src.replace(/_sm.(gif|jpe?g|png)/, '_lg.$1') %>" media="(min-width: 768px)">
+  <!--[if IE 9]></video><![endif]--><img src="<%- src %>" alt="<%- alt %>">
+</picture>
+<% } %>

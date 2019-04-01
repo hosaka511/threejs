@@ -1,0 +1,57 @@
+/* ------------------------
+  Base Settings
+------------------------ */
+html {
+  font-size: $base-font-size;
+}
+
+body {
+  background-color: $base-background-color;
+  color: $base-font-color;
+  -webkit-font-smoothing: $font-smoothing;
+  font-smoothing: $font-smoothing;
+  font-family: $base-font-family;
+  -webkit-text-size-adjust: 100%;
+  line-height: $base-line-height;
+  word-wrap: break-word;
+}
+
+a {
+  color: $base-link-color-link;
+  text-decoration: $base-link-text_decoration-default;
+
+  &:visited {
+    color: $base-link-color-visited;
+  }
+
+  &:hover {
+    color: $base-link-color-hover;
+    text-decoration: $base-link-text_decoration-hover;
+  }
+  &:active {
+    color: $base-link-color-active;
+    text-decoration: $base-link-text_decoration-hover;
+  }
+
+  &[href^="tel:"] {
+    &:hover {
+      color: $base-link-color-link;
+    }
+    @include breakpoint-up(md) {
+      text-decoration: $base-link-text_decoration-hover;
+      cursor: text;
+    }
+  }
+}
+
+::-moz-selection {
+  background-color: $base-selection-background-color;
+  color: $base-selection-color;
+  text-shadow: none;
+}
+
+::selection {
+  background-color: $base-selection-background-color;
+  color: $base-selection-color;
+  text-shadow: none;
+}

@@ -1,0 +1,69 @@
+// @example
+// .xxxx {
+// 	color: palette('sns', 'twitter');
+// }
+//
+// @each $sns, $color in map-get($palettes, sns) {
+// 	.sns-#{$sns} {
+// 		background-color: $color;
+// 	}
+// }
+
+@function palette($palette-group, $palette-type) {
+	@return map-get(map-get($palettes, $palette-group), $palette-type);
+}
+
+@function breakpoint-next($name, $breakpoint-names: map-keys($breakpoints)) {
+  $n: index($breakpoint-names, $name);
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n +1), null);
+}
+
+@function breakpoint-min($name) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+// 現在（2018/5/13）のSafariのバグにより0.01pxではなく0.02pxを使用する。
+// https://bugs.webkit.org/show_bug.cgi?id=178261
+@function breakpoint-max($name) {
+  $next: breakpoint-next($name);
+  @return if($next, breakpoint-min($next) - 0.02px, null);
+}
+
+// vwの指定
+// 1. $viewportにはPSD（スマホ）のカンバスサイズを指定
+// 2. スマホサイトのデザインが750pxの場合は `$viewport:750` と指定
+// 3. PSDと同じ値を `$size` に入力。※二分の一は不要。
+// @example
+// .xxxx {
+//  font-size: vw(24);
+//  margin: vw(50) auto vw(20) ;
+// }
+@function vw($size, $viewport:640) {
+  $rate: 100 / $viewport;
+  @return $rate * $size * 1vw;
+}
+
+// letter-spacingの指定
+// $valueにはPSDの「選択した文字のトラッキング（VAというアイコン）」の値を指定
+// @example
+// .xxxx {
+//  letter-spacing: ls(100);
+// }
+@function ls($value:100) {
+  $tracking: $value / 1000;
+  @return $tracking * 1em;
+}
+
+// line-heightの指定
+// 1. $fontsizeには「フォントサイズを設定」の値を指定。（pxは省略）
+// 2. $lineFeedにはPSDの「行送りを設定」の値を指定（pxは省略）
+// @example
+// .xxxx {
+//  line-height: lh(13, 22);
+// }
+@function lh($fontsize:16, $lineFeed:24,) {
+  $lineheight: $lineFeed / $fontsize;
+  @return $lineheight;
+}
+

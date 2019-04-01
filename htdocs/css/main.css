@@ -1,0 +1,347 @@
+@charset "UTF-8";
+/*
+* main.css
+*
+*/
+/* ------------------------
+  reset
+------------------------ */
+html,
+body {
+  height: 100%;
+}
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+pre,
+textarea {
+  overflow: auto;
+}
+
+[hidden],
+audio:not([controls]),
+template {
+  display: none;
+}
+
+details,
+main,
+summary {
+  display: block;
+}
+
+input[type=number] {
+  width: auto;
+}
+
+input[type=search] {
+  -webkit-appearance: textfield;
+}
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+progress {
+  display: inline-block;
+}
+
+small {
+  font-size: 75%;
+}
+
+sub,
+sup {
+  position: relative;
+  vertical-align: baseline; 
+  font-size: 75%;
+  line-height: 0;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+textarea {
+  resize: vertical;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+img {
+  border: 0; 
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  min-height: 1.5em;
+  color: inherit;
+  font-family: inherit; 
+  font-weight: inherit;
+  font-style: inherit;
+}
+
+button {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer; 
+
+  -webkit-appearance: button;
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0; 
+  border: 0;
+}
+
+input {
+  line-height: normal;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace,monospace;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+select {
+     -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+fieldset {
+  border: 0;
+}
+
+/* ------------------------
+  Base Settings
+------------------------ */
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: #fff;
+  word-wrap: break-word; 
+  color: #333;
+  font-family: YuGothic, "ヒラギノ角ゴ ProN W3", "Lucida Grande", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, Verdana, "ＭＳ Ｐゴシック", sans-serif;
+  line-height: 1.6875;
+
+  -webkit-font-smoothing: antialiased;
+          font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  text-decoration: underline; 
+  color: #00f;
+}
+a:visited {
+  color: #000080;
+}
+a:hover {
+  text-decoration: none; 
+  color: #f00;
+}
+a:active {
+  text-decoration: none; 
+  color: #ff8000;
+}
+a[href^="tel:"]:hover {
+  color: #00f;
+}
+@media (min-width: 768px) {
+  a[href^="tel:"] {
+    cursor: text; 
+    text-decoration: none;
+  }
+}
+
+::selection {
+  background-color: #036eb8;
+  color: #fff;
+  text-shadow: none;
+}
+
+/* ------------------------
+  utilities Classes
+------------------------ */
+.u-hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+@media (max-width: 767.98px) {
+  .u-hidden-sm {
+    display: none !important;
+    visibility: hidden;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .u-hidden-md {
+    display: none !important;
+    visibility: hidden;
+  }
+}
+
+@media (min-width: 1024px) {
+  .u-hidden-lg {
+    display: none !important;
+    visibility: hidden;
+  }
+}
+
+.u-visuallyhidden {
+  overflow: hidden;
+  clip: rect(0 0 0 0); 
+  position: absolute;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.u-visuallyhidden.focusable:active,
+.u-visuallyhidden.focusable:focus {
+  overflow: visible;
+  clip: auto; 
+  position: static;
+  margin: 0;
+  width: auto;
+  height: auto;
+}
+
+.u-invisible {
+  visibility: hidden;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* ------------------------
+  Components
+------------------------ */
+.hoge {
+  width: 100%;
+  background: turquoise;
+}
+.hoge::after {
+  content: "：SM";
+}
+@media (min-width: 768px) {
+  .hoge {
+    background: violet;
+  }
+  .hoge::after {
+    content: "：MD";
+  }
+}
+@media (min-width: 1024px) {
+  .hoge {
+    background: wheat;
+  }
+  .hoge::after {
+    content: "：LG";
+  }
+}
+
+/* 小コメント ------- */
+.hoge_small {
+  width: 100%;
+}
+
+/* ------------------------
+  Print Styles
+------------------------ */
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  img {
+    max-width: 100% !important;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

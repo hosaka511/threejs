@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+/*
+* top.css
+*
+*/
+
+// Common Settings
+@import "_partials/setting";
+@import "_partials/sprite-common";
+@import "_partials/function";
+@import "_partials/mixin";
+
+/* --------------------------------
+   top
+-------------------------------- */
+.xxxx {
+  background: tomato;
+
+  // Responsive typography
+  font-size: responsive 15px 17px;
+  lower-font-range: 320px;
+  upper-font-range: 375px;
+
+  // Shorthand positioning syntax
+  position: absolute 0 20px 10px 30px;
+}

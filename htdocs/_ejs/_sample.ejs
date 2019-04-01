@@ -1,0 +1,108 @@
+<%_  var pageID = 'top'; _%>
+<!doctype html>
+<html lang="ja">
+<head>
+<%- include(relativePath + '_partials/_analytics')%>
+
+<!-- meta -->
+<%- include(relativePath + '_partials/_meta', {page: pageID})%>
+
+<!-- stylesheet -->
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/top.css">
+
+<script>
+  document.createElement( "picture" );
+</script>
+<script src="/js/vendor/picturefill.min.js" async></script>
+</head>
+<body>
+<!-- header -->
+<%- include(relativePath + '_partials/_header')%>
+
+<main>
+<p>コンテンツ</p>
+
+<!-- media属性でブレークポイント指定 -->
+<%- include(relativePath + '_utilities/_picture', {src: 'img/_dummy_sm.png', alt: '地球'});%>
+
+<!-- SVGスプライト：サンプル -->
+<style type="text/css" media="screen">
+  .icon { width: 30px;height: 30px; }
+  .icon.icon-facebook { fill: #395CA9; }
+  .icon.icon-twitter { fill: #1997F0; }
+  .icon.icon-instagram { fill: #000; }
+
+  .icon.icon-arw { width: 50px; height: 50px; transition: 0.3s; }
+  .icon.icon-arw:hover { fill: red; }
+
+  .icon.icon-logo { width: 100px; height: 100px; }
+
+  .icon.icon-logo .icon-logo_amazon-01 { fill: #f59c1d; }
+  .icon.icon-logo .icon-logo_amazon-02 { fill: #f59c1d; }
+  .icon.icon-logo .icon-logo_amazon-03 { fill: #000; }
+
+  /* スマホ タッチイベント */
+  .touchHoverSample {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    background-color: #ccc;
+  }
+  .touchHoverSample a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .touchevents .touchHoverSample a.is-touched,
+  .no-touchevents .touchHoverSample a:hover {
+    background-color: #666;
+  }
+  .touchevents .touchHoverSample.is-touched,
+  .no-touchevents .touchHoverSample:hover {
+    background-color: #666;
+  }
+  /* SCSSだとこんな感じ
+  .touchHoverSample {
+    a {
+      .touchevents &.is-touched,
+      .no-touchevents &:hover {
+        background-color: #666;
+      }
+    }
+  }
+  */
+</style>
+
+<svg class="icon"><use xlink:href="/img/sprite.svg#zoom-in" /></svg>
+<svg class="icon"><use xlink:href="/img/sprite.svg#zoom-out" /></svg>
+<svg class="icon icon-facebook"><use xlink:href="/img/sprite.svg#sns-facebook" /></svg>
+<svg class="icon icon-twitter"><use xlink:href="/img/sprite.svg#sns-twitter" /></svg>
+<svg class="icon icon-instagram"><use xlink:href="/img/sprite.svg#sns-instagram" /></svg>
+<svg class="icon icon-arw"><use xlink:href="/img/sprite.svg#arw-up" /></svg>
+<svg class="icon icon-arw"><use xlink:href="/img/sprite.svg#arw-left" /></svg>
+<svg class="icon icon-arw"><use xlink:href="/img/sprite.svg#arw-down" /></svg>
+<svg class="icon icon-arw"><use xlink:href="/img/sprite.svg#arw-right" /></svg>
+
+<svg class="icon icon-logo"><use xlink:href="/img/sprite.svg#logo-amazon" /></svg>
+
+<svg class="icon icon-logo" viewBox="0 0 32 32">
+  <use class="icon-logo_amazon-01" xlink:href="/img/sprite.svg#logo-amazon-01" />
+  <use class="icon-logo_amazon-02" xlink:href="/img/sprite.svg#logo-amazon-02" />
+  <use class="icon-logo_amazon-03" xlink:href="/img/sprite.svg#logo-amazon-03" />
+</svg>
+<p class="touchHoverSample"><a href="#">タッチホバー<br>リンク</a></p>
+<p class="touchHoverSample js-touchHover">タッチホバー<br>テキスト</p>
+</main>
+
+<!--#include virtual="/_ssi/sample.inc" -->
+
+<!-- footer -->
+<%- include(relativePath + '_partials/_footer')%>
+
+<!-- lib -->
+<%- include(relativePath + '_partials/_lib')%>
+<script src="/js/main.js"></script>
+<script src="/js/top.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<%_
+var media_minWidth = '768';
+var suffix_small = '_sm';
+var suffix_large = '_lg';
+
+const REG = new RegExp(suffix_small + '.(gif|jpe?g|png)');
+_%>
+<picture>
+  <source srcset="<%- src.replace(REG, suffix_large+'.$1') %>" media="(min-width: <%- media_minWidth %>px)">
+  <img src="<%- src %>" alt="<%- alt %>">
+</picture>
